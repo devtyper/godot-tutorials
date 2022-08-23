@@ -1,12 +1,19 @@
 extends CanvasLayer
 
 signal start_game
+var fps
 
 
 func show_message(text):
 	$Message.text = text
 	$Message.show()
 	$MessageTimer.start()
+
+
+func _process(delta):
+	fps = 1/delta
+	#$Frames.text = str(int(fps))
+	$Frames.text = str(fps) # for debug
 
 
 func show_game_over():
